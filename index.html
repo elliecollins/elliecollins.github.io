@@ -4,87 +4,178 @@ index.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single File Template</title>
-    
+    <meta name="description" content="A community service opportunities hub for high school students to discover meaningful ways to help their communities.">
+    <title>Serve & Learn | Community Opportunities</title>
     <style>
+        :root {
+            --bg: #f4f8f2;
+            --card: #ffffff;
+            --text: #1f2937;
+            --muted: #5b6472;
+            --accent: #2f7d5f;
+            --accent-dark: #215c45;
+            --accent-light: #e8f5ee;
+            --border: #dce8de;
+        }
+
+        * { box-sizing: border-box; }
+
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #f7fbf5 0%, #eef7ee 100%);
         }
 
         header {
-            background-color: #2c3e50;
-            color: #ffffff;
-            padding: 2rem 0;
-            text-align: center;
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            color: white;
+            padding: 3rem 1.5rem 2.5rem;
         }
 
-        main {
-            padding: 2rem;
-            max-width: 800px;
-            margin: 2rem auto;
-            background: #ffffff;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-radius: 8px;
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         h1 {
-            margin: 0;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin: 0 0 0.75rem;
         }
 
-        button {
-            background-color: #3498db;
+        .lead {
+            font-size: 1.05rem;
+            max-width: 700px;
+            color: rgba(255,255,255,0.92);
+        }
+
+        main {
+            max-width: 1000px;
+            margin: -1rem auto 2rem;
+            padding: 0 1.5rem 2rem;
+        }
+
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--accent-dark);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            background: var(--accent-light);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent-dark);
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            background: white;
+            color: var(--accent-dark);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        ul {
+            padding-left: 1.1rem;
+            color: var(--muted);
+        }
+
+        .cta {
+            text-align: center;
+            background: linear-gradient(90deg, #f2fbf6, #e0f4e8);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: var(--accent);
             color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
         }
 
-        button:hover {
-            background-color: #2980b9;
-        }
-
-        #output {
-            margin-top: 15px;
-            font-weight: bold;
-            color: #27ae60;
+        @media (max-width: 760px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-
     <header>
-        <h1>My Awesome Project</h1>
+        <div class="container">
+            <h1>Serve & Learn</h1>
+            <p class="lead">A student-friendly hub for finding community service opportunities that build leadership, compassion, and real-world experience.</p>
+        </div>
     </header>
-    
+
     <main>
-        <h2>Welcome to your site!</h2>
-        <p>This is a starter template. Everything you need is right here in one file. You can easily modify the text, colors, and layout by tweaking the code above.</p>
-        
-        <hr style="border: 1px solid #eee; margin: 2rem 0;">
-        
-        <h3>Interactive Demo</h3>
-        <p>Click the button below to see the JavaScript in action.</p>
-        <button id="actionButton">Click Me</button>
-        <p id="output"></p>
+        <section class="panel">
+            <h2>Why volunteer?</h2>
+            <p>Community service helps high school students grow confidence, connect with their communities, and strengthen college and career applications.</p>
+        </section>
+
+        <section class="panel">
+            <h2>Popular opportunity types</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>Food Drives</h3>
+                    <p>Support local food pantries and help families access essentials.</p>
+                    <span class="tag">Weekend friendly</span>
+                </article>
+                <article class="card">
+                    <h3>Animal Shelters</h3>
+                    <p>Assist with care, outreach, and community education.</p>
+                    <span class="tag">Hands-on</span>
+                </article>
+                <article class="card">
+                    <h3>Environmental Projects</h3>
+                    <p>Join park cleanups, tree plantings, and sustainability events.</p>
+                    <span class="tag">Outdoor</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>How to get started</h2>
+            <ul>
+                <li>Ask your school counselor or club advisor about service opportunities.</li>
+                <li>Look for local nonprofits, libraries, hospitals, and parks.</li>
+                <li>Choose causes that match your interests and schedule.</li>
+            </ul>
+        </section>
+
+        <section class="panel cta">
+            <h2>Ready to make a difference?</h2>
+            <p>Start small, stay consistent, and build a service record that matters.</p>
+            <a class="btn" href="mailto:service@example.org">Contact a local organization</a>
+        </section>
     </main>
-
-    <script>
-        // Grab the button and the output paragraph from the HTML
-        const button = document.getElementById('actionButton');
-        const outputText = document.getElementById('output');
-
-        // Add a click event listener to the button
-        button.addEventListener('click', () => {
-            outputText.textContent = "Success! The JavaScript is working perfectly.";
-        });
-    </script>
 </body>
 </html>
