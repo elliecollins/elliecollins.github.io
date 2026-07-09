@@ -31,17 +31,48 @@ index.html
         header {
             background: linear-gradient(135deg, var(--accent-dark), var(--accent));
             color: white;
-            padding: 3rem 1.5rem 2.5rem;
+            padding: 1.25rem 1.5rem 2.5rem;
+        }
+
+        .top-nav {
+            max-width: 1000px;
+            margin: 0 auto 1.5rem;
+            padding: 0.85rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            backdrop-filter: blur(8px);
+        }
+
+        .brand {
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.92);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: white;
         }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin: 0 0 0.75rem;
         }
 
         .lead {
@@ -129,6 +160,14 @@ index.html
 </head>
 <body>
     <header>
+        <nav class="top-nav" aria-label="Main navigation">
+            <a class="brand" href="index.html">Serve & Learn</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="community-service-information.html">Community Service Information</a>
+                <a href="find-your-match.html">Find Your Match</a>
+            </div>
+        </nav>
         <div class="container">
             <h1>Serve & Learn</h1>
             <p class="lead">A student-friendly hub for finding community service opportunities that build leadership, compassion, and real-world experience.</p>
