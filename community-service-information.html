@@ -165,46 +165,6 @@
             </div>
 
             <div class="service-item">
-                <button class="service-button" type="button" data-name="Open Books Pensacola">
-                    <span>Open Books Pensacola</span>
-                    <span class="arrow">▼</span>
-                </button>
-                <div class="service-details">
-                    <p>Open Books Pensacola helps provide books and literacy resources to local families and students. Volunteers may assist with sorting donations, organizing events, or supporting reading programs.</p>
-                </div>
-            </div>
-
-            <div class="service-item">
-                <button class="service-button" type="button" data-name="Keep Pensacola Beautiful">
-                    <span>Keep Pensacola Beautiful</span>
-                    <span class="arrow">▼</span>
-                </button>
-                <div class="service-details">
-                    <p>Keep Pensacola Beautiful organizes cleanups and environmental projects that help improve parks, beaches, and neighborhoods across the community.</p>
-                </div>
-            </div>
-
-            <div class="service-item">
-                <button class="service-button" type="button" data-name="Pensacola MESS Hall">
-                    <span>Pensacola MESS Hall</span>
-                    <span class="arrow">▼</span>
-                </button>
-                <div class="service-details">
-                    <p>Pensacola MESS Hall connects volunteers with food-focused service projects that support local meals, community outreach, and neighborhood care.</p>
-                </div>
-            </div>
-
-            <div class="service-item">
-                <button class="service-button" type="button" data-name="Ocean Hour">
-                    <span>Ocean Hour</span>
-                    <span class="arrow">▼</span>
-                </button>
-                <div class="service-details">
-                    <p>Ocean Hour brings students together for beach and marine conservation activities aimed at protecting coastal environments.</p>
-                </div>
-            </div>
-
-            <div class="service-item">
                 <button class="service-button" type="button" data-name="BRACE">
                     <span>BRACE</span>
                     <span class="arrow">▼</span>
@@ -215,12 +175,12 @@
             </div>
 
             <div class="service-item">
-                <button class="service-button" type="button" data-name="Escambia County Animal Welfare">
-                    <span>Escambia County Animal Welfare</span>
+                <button class="service-button" type="button" data-name="Bracelets to Backpacks">
+                    <span>Bracelets to Backpacks</span>
                     <span class="arrow">▼</span>
                 </button>
                 <div class="service-details">
-                    <p>This organization offers volunteer opportunities that help care for animals and support shelter and adoption programs.</p>
+                    <p>Bracelets to Backpacks helps provide essentials and encouragement to students and families in need through service-driven initiatives.</p>
                 </div>
             </div>
 
@@ -235,22 +195,12 @@
             </div>
 
             <div class="service-item">
-                <button class="service-button" type="button" data-name="Key Club">
-                    <span>Key Club</span>
+                <button class="service-button" type="button" data-name="Escambia County Animal Welfare">
+                    <span>Escambia County Animal Welfare</span>
                     <span class="arrow">▼</span>
                 </button>
                 <div class="service-details">
-                    <p>Key Club offers student-led volunteer service opportunities through school clubs and community-focused projects.</p>
-                </div>
-            </div>
-
-            <div class="service-item">
-                <button class="service-button" type="button" data-name="Bracelets to Backpacks">
-                    <span>Bracelets to Backpacks</span>
-                    <span class="arrow">▼</span>
-                </button>
-                <div class="service-details">
-                    <p>Bracelets to Backpacks helps provide essentials and encouragement to students and families in need through service-driven initiatives.</p>
+                    <p>This organization offers volunteer opportunities that help care for animals and support shelter and adoption programs.</p>
                 </div>
             </div>
 
@@ -283,6 +233,56 @@
                     <p>Gulf Coast Diplomacy Youth Diplomats supports youth leadership, civic engagement, and service through diplomacy-oriented projects.</p>
                 </div>
             </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Key Club">
+                    <span>Key Club</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <p>Key Club offers student-led volunteer service opportunities through school clubs and community-focused projects.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Keep Pensacola Beautiful">
+                    <span>Keep Pensacola Beautiful</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <p>Keep Pensacola Beautiful organizes cleanups and environmental projects that help improve parks, beaches, and neighborhoods across the community.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Ocean Hour">
+                    <span>Ocean Hour</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <p>Ocean Hour brings students together for beach and marine conservation activities aimed at protecting coastal environments.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Open Books Pensacola">
+                    <span>Open Books Pensacola</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <p>Open Books Pensacola helps provide books and literacy resources to local families and students. Volunteers may assist with sorting donations, organizing events, or supporting reading programs.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Pensacola MESS Hall">
+                    <span>Pensacola MESS Hall</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <p>Pensacola MESS Hall connects volunteers with food-focused service projects that support local meals, community outreach, and neighborhood care.</p>
+                </div>
+            </div>
         </div>
     </main>
     <script>
@@ -290,6 +290,17 @@
         const menu = document.querySelector('.nav-menu');
         const searchInput = document.getElementById('serviceSearch');
         const serviceItems = Array.from(document.querySelectorAll('.service-item'));
+
+        const sortServiceItems = () => {
+            const container = document.querySelector('.card');
+            const items = Array.from(container.querySelectorAll('.service-item'));
+            items.sort((a, b) => {
+                const nameA = a.querySelector('.service-button').dataset.name.toLowerCase();
+                const nameB = b.querySelector('.service-button').dataset.name.toLowerCase();
+                return nameA.localeCompare(nameB);
+            });
+            items.forEach((item) => container.appendChild(item));
+        };
 
         if (toggle && menu) {
             toggle.addEventListener('click', () => {
@@ -325,8 +336,11 @@
                     const matches = name.includes(query);
                     item.style.display = matches ? 'block' : 'none';
                 });
+                sortServiceItems();
             });
         }
+
+        sortServiceItems();
     </script>
 </body>
 </html>
