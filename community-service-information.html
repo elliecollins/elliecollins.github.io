@@ -87,6 +87,52 @@
             font-family: "Lora", Georgia, serif;
             color: #2f7d5f;
         }
+        .search-box {
+            margin-bottom: 1rem;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #dce8de;
+            border-radius: 999px;
+            font-size: 1rem;
+        }
+        .service-item {
+            border: 1px solid #dce8de;
+            border-radius: 10px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+            background: #fdfdfd;
+        }
+        .service-button {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.1rem;
+            background: transparent;
+            border: none;
+            text-align: left;
+            font: inherit;
+            color: #1f2937;
+            cursor: pointer;
+        }
+        .service-button .arrow {
+            font-size: 1rem;
+            color: #2f7d5f;
+            transition: transform 0.2s ease;
+        }
+        .service-item.active .arrow {
+            transform: rotate(180deg);
+        }
+        .service-details {
+            display: none;
+            padding: 0 1.1rem 1rem;
+            color: #5b6472;
+        }
+        .service-item.active .service-details {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -109,13 +155,37 @@
     </nav>
     <main>
         <div class="card">
-            <h1>Community Service Information</h1>
-            <p>This page will contain information about community service opportunities, benefits, and how students can get involved.</p>
+            <h1>Local Community Service Index</h1>
+            <div class="search-box">
+                <input type="text" id="serviceSearch" placeholder="Search community services...">
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Open Books Pensacola">
+                    <span>Open Books Pensacola</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <p>Open Books Pensacola helps provide books and literacy resources to local families and students. Volunteers may assist with sorting donations, organizing events, or supporting reading programs.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Keep Pensacola Beautiful">
+                    <span>Keep Pensacola Beautiful</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <p>Keep Pensacola Beautiful organizes cleanups and environmental projects that help improve parks, beaches, and neighborhoods across the community.</p>
+                </div>
+            </div>
         </div>
     </main>
     <script>
         const toggle = document.querySelector('.menu-toggle');
         const menu = document.querySelector('.nav-menu');
+        const searchInput = document.getElementById('serviceSearch');
+        const serviceItems = Array.from(document.querySelectorAll('.service-item'));
 
         if (toggle && menu) {
             toggle.addEventListener('click', () => {
@@ -128,6 +198,29 @@
                     menu.classList.remove('open');
                     toggle.setAttribute('aria-expanded', 'false');
                 }
+            });
+        }
+
+        document.querySelectorAll('.service-button').forEach((button) => {
+            button.addEventListener('click', () => {
+                const item = button.closest('.service-item');
+                serviceItems.forEach((entry) => {
+                    if (entry !== item) {
+                        entry.classList.remove('active');
+                    }
+                });
+                item.classList.toggle('active');
+            });
+        });
+
+        if (searchInput) {
+            searchInput.addEventListener('input', () => {
+                const query = searchInput.value.toLowerCase();
+                serviceItems.forEach((item) => {
+                    const name = item.querySelector('.service-button').dataset.name.toLowerCase();
+                    const matches = name.includes(query);
+                    item.style.display = matches ? 'block' : 'none';
+                });
             });
         }
     </script>
