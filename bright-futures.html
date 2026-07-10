@@ -6,11 +6,11 @@
     <title>Bright Futures</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: "Antic Didone", "Times New Roman", serif;
+            font-family: "Open Sans", Arial, sans-serif;
             background: #f4f8f2;
             color: #1f2937;
         }
@@ -95,6 +95,15 @@
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.05);
         }
+        .card-header {
+            border-bottom: 1px solid #2f7d5f;
+            padding-bottom: 0.6rem;
+            margin-bottom: 0.9rem;
+        }
+        h1, h2, h3 {
+            font-family: "Lora", Georgia, serif;
+            color: #2f7d5f;
+        }
         .card a {
             color: #215c45;
             font-weight: 700;
@@ -131,18 +140,29 @@
     <main>
         <div class="top-box">
             <h1>Bright Futures</h1>
-            <p>Bright Futures is a state scholarship program that rewards Florida students for academic achievement and community involvement. It can help reduce the cost of college and support students as they plan for their future.</p>
+            <p>To receive the Bright Futures scholarship, students should stay on track academically, meet the required GPA and test score standards, complete the necessary community service hours, and submit all forms on time. Planning early and keeping organized records can help students meet each requirement successfully.</p>
         </div>
 
         <div class="bottom-row">
             <div class="card">
-                <h2>Escambia County Handbook</h2>
-                <p>The community service proposal is on page 4, the community service reflection is on page 5, and the community service log is on page 6.</p>
+                <div class="card-header">
+                    <h2>Escambia County Handbook</h2>
+                </div>
                 <p>Use this handbook for guidance on eligibility, requirements, and application steps.</p>
                 <a href="https://www.escambia.k12.fl.us/wp-content/uploads/2023/07/Bright-Futures-Handbook-2023.pdf" target="_blank" rel="noopener noreferrer">Open the Escambia County handbook</a>
+                <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid #dce8de;">
+                    <p style="margin: 0 0 0.4rem; font-weight: 700;">Document pages</p>
+                    <ul style="margin: 0; padding-left: 1.2rem;">
+                        <li>Community service proposal — page 4</li>
+                        <li>Community service reflection — page 5</li>
+                        <li>Community service log — page 6</li>
+                    </ul>
+                </div>
             </div>
             <div class="card">
-                <h2>Required Paperwork</h2>
+                <div class="card-header">
+                    <h2>Required Paperwork</h2>
+                </div>
                 <p>Students should prepare their transcript, test scores, residency information, and any required signatures before applying.</p>
             </div>
         </div>
