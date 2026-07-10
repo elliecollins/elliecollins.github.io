@@ -73,15 +73,40 @@
             background: #e8f5ee;
         }
         main {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 2rem auto;
             padding: 0 1.5rem 2rem;
+        }
+        .top-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            margin-bottom: 1.25rem;
+        }
+        .bottom-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
         }
         .card {
             background: white;
             padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        }
+        .card a {
+            color: #215c45;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 760px) {
+            .bottom-row {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -104,9 +129,22 @@
         </div>
     </nav>
     <main>
-        <div class="card">
+        <div class="top-box">
             <h1>Bright Futures</h1>
-            <p>This page is intentionally blank for future Bright Futures content.</p>
+            <p>Bright Futures is a state scholarship program that rewards Florida students for academic achievement and community involvement. It can help reduce the cost of college and support students as they plan for their future.</p>
+        </div>
+
+        <div class="bottom-row">
+            <div class="card">
+                <h2>Escambia County Handbook</h2>
+                <p>The community service proposal is on page 4, the community service reflection is on page 5, and the community service log is on page 6.</p>
+                <p>Use this handbook for guidance on eligibility, requirements, and application steps.</p>
+                <a href="https://www.escambia.k12.fl.us/wp-content/uploads/2023/07/Bright-Futures-Handbook-2023.pdf" target="_blank" rel="noopener noreferrer">Open the Escambia County handbook</a>
+            </div>
+            <div class="card">
+                <h2>Required Paperwork</h2>
+                <p>Students should prepare their transcript, test scores, residency information, and any required signatures before applying.</p>
+            </div>
         </div>
     </main>
     <script>
