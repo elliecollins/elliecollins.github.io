@@ -56,20 +56,58 @@
             text-decoration: none;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+        .nav-controls {
+            position: relative;
         }
 
-        .nav-links a {
-            color: rgba(255,255,255,0.92);
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        .nav-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: calc(100% + 0.5rem);
+            min-width: 220px;
+            flex-direction: column;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            z-index: 20;
+        }
+
+        .nav-menu.open {
+            display: flex;
+        }
+
+        .nav-menu a {
+            color: var(--accent-dark);
             text-decoration: none;
             font-weight: 600;
+            padding: 0.6rem 0.75rem;
+            border-radius: 8px;
         }
 
-        .nav-links a:hover {
-            color: white;
+        .nav-menu a:hover {
+            background: var(--accent-light);
+            color: var(--accent-dark);
         }
 
         .container {
@@ -164,12 +202,19 @@
     <header>
         <nav class="top-nav" aria-label="Main navigation">
             <span class="brand">Pensacola Volunteer Hub</span>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="community-service-information.html">Service Index</a>
-                <a href="find-your-match.html">Find Your Match</a>
-                <a href="bright-futures.html">Bright Futures</a>
-                <a href="cas.html">CAS</a>
+            <div class="nav-controls">
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html">Home</a>
+                    <a href="community-service-information.html">Service Index</a>
+                    <a href="find-your-match.html">Find Your Match</a>
+                    <a href="bright-futures.html">Bright Futures</a>
+                    <a href="cas.html">CAS</a>
+                </div>
             </div>
         </nav>
         <div class="container">
@@ -228,5 +273,23 @@
             <a class="btn" href="mailto:service@example.org">Contact a local organization</a>
         </section>
     </main>
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.nav-menu');
+
+        if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+                const isOpen = menu.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.nav-controls')) {
+                    menu.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
