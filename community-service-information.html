@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Service Information</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Open Sans", Arial, sans-serif;
+            background: #f4f8f2;
+            color: #1f2937;
+        }
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #215c45;
+            padding: 1rem 1.5rem;
+        }
+        .brand {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .nav-controls {
+            position: relative;
+        }
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+        }
+        .nav-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: calc(100% + 0.5rem);
+            min-width: 220px;
+            flex-direction: column;
+            background: white;
+            border: 1px solid #dce8de;
+            border-radius: 12px;
+            padding: 0.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            z-index: 20;
+        }
+        .nav-menu.open {
+            display: flex;
+        }
+        .nav-menu a {
+            color: #215c45;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.6rem 0.75rem;
+            border-radius: 8px;
+        }
+        .nav-menu a:hover {
+            background: #e8f5ee;
+        }
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem 2rem;
+        }
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            font-family: "Lora", Georgia, serif;
+            color: #2f7d5f;
+        }
+        .search-box {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        .search-box input {
+            width: 100%;
+            max-width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #dce8de;
+            border-radius: 999px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        .service-item {
+            border: 1px solid #dce8de;
+            border-radius: 10px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+            background: #fdfdfd;
+        }
+        .service-button {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.1rem;
+            background: transparent;
+            border: none;
+            text-align: left;
+            font: inherit;
+            color: #1f2937;
+            cursor: pointer;
+        }
+        .service-button .arrow {
+            font-size: 1rem;
+            color: #2f7d5f;
+            transition: transform 0.2s ease;
+        }
+        .service-item.active .arrow {
+            transform: rotate(180deg);
+        }
+        .service-details {
+            display: none;
+            padding: 0 1.1rem 1rem;
+            color: #5b6472;
+        }
+        .service-item.active .service-details {
+            display: block;
+        }
+        .service-detail-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .service-logo {
+            flex-shrink: 0;
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            border: 1px solid #dce8de;
+            background: #f6fbf7;
+            padding: 0.35rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .service-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .service-copy {
+            flex: 1;
+            min-width: 0;
+        }
+        @media (max-width: 600px) {
+            .service-detail-row {
+                flex-direction: column;
+            }
+            .service-logo {
+                width: 56px;
+                height: 56px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav" aria-label="Main navigation">
+        <a class="brand" href="index.html">Pensacola Volunteer Hub</a>
+        <div class="nav-controls">
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="community-service-information.html">Service Index</a>
+                <a href="find-your-match.html">Find Your Match</a>
+                <a href="bright-futures.html">Bright Futures</a>
+                <a href="cas.html">CAS</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="card">
+            <h1>Local Community Service Index</h1>
+            <div class="search-box">
+                <input type="text" id="serviceSearch" placeholder="Search community services...">
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="BRACE">
+                    <span>BRACE</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <div class="service-detail-row">
+                        <div class="service-logo">
+                            <img src="images/logos/brace.svg" alt="BRACE logo">
+                        </div>
+                        <div class="service-copy">
+                            <p>BRACE supports local community service and education efforts that focus on helping families and strengthening neighborhoods.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Bracelets to Backpacks">
+                    <span>Bracelets to Backpacks</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <div class="service-detail-row">
+                        <div class="service-logo">
+                            <img src="images/logos/bracelets-to-backpacks.svg" alt="Bracelets to Backpacks logo">
+                        </div>
+                        <div class="service-copy">
+                            <p>Bracelets to Backpacks helps provide essentials and encouragement to students and families in need through service-driven initiatives.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Children's Home Society of Florida">
+                    <span>Children's Home Society of Florida</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <div class="service-detail-row">
+                        <div class="service-logo">
+                            <img src="images/logos/childrens-home-society.svg" alt="Children's Home Society of Florida logo">
+                        </div>
+                        <div class="service-copy">
+                            <p>The Children’s Home Society of Florida provides family-focused service opportunities that support children, youth, and community wellness.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Escambia County Animal Welfare">
+                    <span>Escambia County Animal Welfare</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <div class="service-detail-row">
+                        <div class="service-logo">
+                            <img src="images/logos/escambia-animal-welfare.svg" alt="Escambia County Animal Welfare logo">
+                        </div>
+                        <div class="service-copy">
+                            <p>This organization offers volunteer opportunities that help care for animals and support shelter and adoption programs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Florida Public Archaeology Network">
+                    <span>Florida Public Archaeology Network</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <div class="service-detail-row">
+                        <div class="service-logo">
+                            <img src="images/logos/florida-public-archaeology-network.svg" alt="Florida Public Archaeology Network logo">
+                        </div>
+                        <div class="service-copy">
+                            <p>The Florida Public Archaeology Network offers educational and community-service opportunities connected to local history and preservation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Gulf Coast Culture Fest">
+                    <span>Gulf Coast Culture Fest</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <div class="service-detail-row">
+                        <div class="service-logo">
+                            <img src="images/logos/gulf-coast-culture-fest.svg" alt="Gulf Coast Culture Fest logo">
+                        </div>
+                        <div class="service-copy">
+                            <p>Gulf Coast Culture Fest brings together community events and service opportunities centered on culture, connection, and local celebration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Gulf Coast Diplomacy Youth Diplomats">
+                    <span>Gulf Coast Diplomacy Youth Diplomats</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <div class="service-detail-row">
+                        <div class="service-logo">
+                            <img src="images/logos/gulf-coast-diplomacy.svg" alt="Gulf Coast Diplomacy Youth Diplomats logo">
+                        </div>
+                        <div class="service-copy">
+                            <p>Gulf Coast Diplomacy Youth Diplomats supports youth leadership, civic engagement, and service through diplomacy-oriented projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Key Club">
+                    <span>Key Club</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <div class="service-detail-row">
+                        <div class="service-logo">
+                            <img src="images/logos/key-club.svg" alt="Key Club logo">
+                        </div>
+                        <div class="service-copy">
+                            <p>Key Club offers student-led volunteer service opportunities through school clubs and community-focused projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Keep Pensacola Beautiful">
+                    <span>Keep Pensacola Beautiful</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <div class="service-detail-row">
+                        <div class="service-logo">
+                            <img src="images/logos/keep-pensacola-beautiful.svg" alt="Keep Pensacola Beautiful logo">
+                        </div>
+                        <div class="service-copy">
+                            <p>Keep Pensacola Beautiful organizes cleanups and environmental projects that help improve parks, beaches, and neighborhoods across the community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Ocean Hour">
+                    <span>Ocean Hour</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <div class="service-detail-row">
+                        <div class="service-logo">
+                            <img src="images/logos/ocean-hour.svg" alt="Ocean Hour logo">
+                        </div>
+                        <div class="service-copy">
+                            <p>Ocean Hour brings students together for beach and marine conservation activities aimed at protecting coastal environments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Open Books Pensacola">
+                    <span>Open Books Pensacola</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <div class="service-detail-row">
+                        <div class="service-logo">
+                            <img src="images/logos/open-books-pensacola.svg" alt="Open Books Pensacola logo">
+                        </div>
+                        <div class="service-copy">
+                            <p>Open Books Pensacola helps provide books and literacy resources to local families and students. Volunteers may assist with sorting donations, organizing events, or supporting reading programs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <button class="service-button" type="button" data-name="Pensacola MESS Hall">
+                    <span>Pensacola MESS Hall</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="service-details">
+                    <div class="service-detail-row">
+                        <div class="service-logo">
+                            <img src="images/logos/pensacola-mess-hall.svg" alt="Pensacola MESS Hall logo">
+                        </div>
+                        <div class="service-copy">
+                            <p>Pensacola MESS Hall connects volunteers with food-focused service projects that support local meals, community outreach, and neighborhood care.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.nav-menu');
+        const searchInput = document.getElementById('serviceSearch');
+        const serviceItems = Array.from(document.querySelectorAll('.service-item'));
+
+        const sortServiceItems = () => {
+            const container = document.querySelector('.card');
+            const items = Array.from(container.querySelectorAll('.service-item'));
+            items.sort((a, b) => {
+                const nameA = a.querySelector('.service-button').dataset.name.toLowerCase();
+                const nameB = b.querySelector('.service-button').dataset.name.toLowerCase();
+                return nameA.localeCompare(nameB);
+            });
+            items.forEach((item) => container.appendChild(item));
+        };
+
+        if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+                const isOpen = menu.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.nav-controls')) {
+                    menu.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        document.querySelectorAll('.service-button').forEach((button) => {
+            button.addEventListener('click', () => {
+                const item = button.closest('.service-item');
+                serviceItems.forEach((entry) => {
+                    if (entry !== item) {
+                        entry.classList.remove('active');
+                    }
+                });
+                item.classList.toggle('active');
+            });
+        });
+
+        if (searchInput) {
+            searchInput.addEventListener('input', () => {
+                const query = searchInput.value.toLowerCase();
+                serviceItems.forEach((item) => {
+                    const name = item.querySelector('.service-button').dataset.name.toLowerCase();
+                    const matches = name.includes(query);
+                    item.style.display = matches ? 'block' : 'none';
+                });
+                sortServiceItems();
+            });
+        }
+
+        sortServiceItems();
+    </script>
+</body>
+</html>

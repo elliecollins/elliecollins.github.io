@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#ecfeff"/>
+  <rect x="20" y="18" width="24" height="28" rx="4" fill="#0ea5a4"/>
+  <path d="M24 22h16v8H24z" fill="white"/>
+  <path d="M24 34h16v4H24z" fill="white"/>
+  <text x="32" y="38" font-family="Arial, sans-serif" font-size="8" font-weight="700" text-anchor="middle" fill="white">KPB</text>
+</svg>

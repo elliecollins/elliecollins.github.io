@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#f5f3ff"/>
+  <rect x="16" y="18" width="32" height="28" rx="4" fill="#6d28d9"/>
+  <path d="M21 44V24h10v20" fill="white"/>
+  <path d="M31 24h8v20h-8z" fill="white"/>
+  <text x="32" y="38" font-family="Arial, sans-serif" font-size="8" font-weight="700" text-anchor="middle" fill="white">FPAN</text>
+</svg>

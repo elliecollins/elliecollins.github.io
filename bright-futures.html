@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Futures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Open Sans", Arial, sans-serif;
+            background: #f4f8f2;
+            color: #1f2937;
+        }
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #215c45;
+            padding: 1rem 1.5rem;
+        }
+        .brand {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .nav-controls {
+            position: relative;
+        }
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+        }
+        .nav-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: calc(100% + 0.5rem);
+            min-width: 220px;
+            flex-direction: column;
+            background: white;
+            border: 1px solid #dce8de;
+            border-radius: 12px;
+            padding: 0.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            z-index: 20;
+        }
+        .nav-menu.open {
+            display: flex;
+        }
+        .nav-menu a {
+            color: #215c45;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.6rem 0.75rem;
+            border-radius: 8px;
+        }
+        .nav-menu a:hover {
+            background: #e8f5ee;
+        }
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem 2rem;
+        }
+        .top-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            margin-bottom: 1.25rem;
+        }
+        .bottom-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        }
+        .card-header {
+            border-bottom: 1px solid #2f7d5f;
+            padding-bottom: 0.6rem;
+            margin-bottom: 0.9rem;
+        }
+        h1, h2, h3 {
+            font-family: "Lora", Georgia, serif;
+            color: #2f7d5f;
+        }
+        .card a {
+            color: #215c45;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 760px) {
+            .bottom-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav" aria-label="Main navigation">
+        <a class="brand" href="index.html">Pensacola Volunteer Hub</a>
+        <div class="nav-controls">
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="community-service-information.html">Service Index</a>
+                <a href="find-your-match.html">Find Your Match</a>
+                <a href="bright-futures.html">Bright Futures</a>
+                <a href="cas.html">CAS</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="top-box">
+            <h1>Bright Futures</h1>
+            <p>To receive the Bright Futures scholarship, students should stay on track academically, meet the required GPA and test score standards, complete the necessary community service hours, and submit all forms on time. Planning early and keeping organized records can help students meet each requirement successfully.</p>
+        </div>
+
+        <div class="bottom-row">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Escambia County Handbook</h2>
+                </div>
+                <p>Use this handbook for guidance on eligibility, requirements, and application steps.</p>
+                <a href="https://resources.finalsite.net/images/v1745414565/escambiaschoolsorg/ovxnb944jvgkw9jyxeek/bright_futures_student_packet.pdf" target="_blank" rel="noopener noreferrer">Open the Escambia County handbook</a>
+                <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid #dce8de;">
+                    <p style="margin: 0 0 0.4rem; font-weight: 700;">Document pages</p>
+                    <ul style="margin: 0; padding-left: 1.2rem;">
+                        <li>Community service proposal — page 4</li>
+                        <li>Community service reflection — page 5</li>
+                        <li>Community service log — page 6</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h2>Required Paperwork</h2>
+                </div>
+                <p>Students should prepare their transcript, test scores, residency information, and any required signatures before applying.</p>
+            </div>
+        </div>
+    </main>
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.nav-menu');
+
+        if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+                const isOpen = menu.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.nav-controls')) {
+                    menu.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

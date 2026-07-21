@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#fdf2f8"/>
+  <rect x="17" y="18" width="30" height="28" rx="4" fill="#ec4899"/>
+  <path d="M24 24h16v16H24z" fill="white"/>
+  <text x="32" y="38" font-family="Arial, sans-serif" font-size="8" font-weight="700" text-anchor="middle" fill="#ec4899">PMH</text>
+</svg>

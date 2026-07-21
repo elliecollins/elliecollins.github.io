@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A community service opportunities hub for high school students to discover meaningful ways to help their communities.">
+    <title>Pensacola Volunteer Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f4f8f2;
+            --card: #ffffff;
+            --text: #1f2937;
+            --muted: #5b6472;
+            --accent: #2f7d5f;
+            --accent-dark: #215c45;
+            --accent-light: #e8f5ee;
+            --border: #dce8de;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Open Sans", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #f7fbf5 0%, #eef7ee 100%);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            color: white;
+            padding: 1.25rem 1.5rem 2.5rem;
+        }
+
+        .top-nav {
+            max-width: 1000px;
+            margin: 0 auto 1.5rem;
+            padding: 0.85rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            backdrop-filter: blur(8px);
+        }
+
+        .brand {
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-controls {
+            position: relative;
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        .nav-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: calc(100% + 0.5rem);
+            min-width: 220px;
+            flex-direction: column;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            z-index: 20;
+        }
+
+        .nav-menu.open {
+            display: flex;
+        }
+
+        .nav-menu a {
+            color: var(--accent-dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.6rem 0.75rem;
+            border-radius: 8px;
+        }
+
+        .nav-menu a:hover {
+            background: var(--accent-light);
+            color: var(--accent-dark);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .container h1 {
+            color: #ffffff;
+        }
+
+        .lead {
+            font-size: 1.05rem;
+            max-width: 700px;
+            color: rgba(255,255,255,0.92);
+        }
+
+        main {
+            max-width: 1000px;
+            margin: -1rem auto 2rem;
+            padding: 0 1.5rem 2rem;
+        }
+
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        }
+
+        h1, h2, h3 {
+            font-family: "Lora", Georgia, serif;
+            margin-top: 0;
+            color: var(--accent);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            background: var(--accent-light);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent-dark);
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            background: white;
+            color: var(--accent-dark);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        ul {
+            padding-left: 1.1rem;
+            color: var(--muted);
+        }
+
+        .cta {
+            text-align: center;
+            background: linear-gradient(90deg, #f2fbf6, #e0f4e8);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        @media (max-width: 760px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="top-nav" aria-label="Main navigation">
+            <span class="brand">Pensacola Volunteer Hub</span>
+            <div class="nav-controls">
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html">Home</a>
+                    <a href="community-service-information.html">Service Index</a>
+                    <a href="find-your-match.html">Find Your Match</a>
+                    <a href="bright-futures.html">Bright Futures</a>
+                    <a href="cas.html">CAS</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <h1>Pensacola Volunteer Hub</h1>
+            <p class="lead">A student-friendly hub for finding community service opportunities that build leadership, compassion, and real-world experience.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="panel">
+            <h2>Why volunteer?</h2>
+            <p>Community service helps high school students grow confidence, connect with their communities, and strengthen college and career applications.</p>
+        </section>
+
+        <section class="panel">
+            <h2>Upcoming Service Events</h2>
+            <p>Use this calendar to see volunteer opportunities and events you can join.</p>
+            <div style="overflow-x: auto;">
+                <iframe src="https://calendar.google.com/calendar/embed?src=58f14a6aaa9edccc0fe6bd0bf1bf4ad81a81dceb28275df2f1272b5226531b7d%40group.calendar.google.com&ctz=America%2FChicago" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Popular opportunity types</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>Food Drives</h3>
+                    <p>Support local food pantries and help families access essentials.</p>
+                    <span class="tag">Weekend friendly</span>
+                </article>
+                <article class="card">
+                    <h3>Animal Shelters</h3>
+                    <p>Assist with care, outreach, and community education.</p>
+                    <span class="tag">Hands-on</span>
+                </article>
+                <article class="card">
+                    <h3>Environmental Projects</h3>
+                    <p>Join park cleanups, tree plantings, and sustainability events.</p>
+                    <span class="tag">Outdoor</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>How to get started</h2>
+            <ul>
+                <li>Ask your school counselor or club advisor about service opportunities.</li>
+                <li>Look for local nonprofits, libraries, hospitals, and parks.</li>
+                <li>Choose causes that match your interests and schedule.</li>
+            </ul>
+        </section>
+
+        <section class="panel cta">
+            <h2>Ready to make a difference?</h2>
+            <p>Start small, stay consistent, and build a service record that matters.</p>
+            <a class="btn" href="mailto:service@example.org">Contact a local organization</a>
+        </section>
+    </main>
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.nav-menu');
+
+        if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+                const isOpen = menu.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.nav-controls')) {
+                    menu.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
