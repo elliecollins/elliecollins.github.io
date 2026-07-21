@@ -1,7 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#ecfeff"/>
-  <rect x="20" y="18" width="24" height="28" rx="4" fill="#0ea5a4"/>
-  <path d="M24 22h16v8H24z" fill="white"/>
-  <path d="M24 34h16v4H24z" fill="white"/>
-  <text x="32" y="38" font-family="Arial, sans-serif" font-size="8" font-weight="700" text-anchor="middle" fill="white">KPB</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+  <defs>
+    <radialGradient id="sun" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#ffeb7f"/>
+      <stop offset="100%" stop-color="#f7b500"/>
+    </radialGradient>
+  </defs>
+  <circle cx="120" cy="120" r="110" fill="url(#sun)"/>
+  <path d="M59 148c-7-11-11-23-11-36 0-37 33-68 74-68 41 0 74 31 74 68 0 13-4 25-11 36-10 16-28 26-49 26-21 0-39-10-49-26z" fill="#ffffff" opacity="0.15"/>
+  <text x="120" y="68" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700" text-anchor="middle" fill="#1f3b00">Keep</text>
+  <text x="120" y="108" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700" text-anchor="middle" fill="#1f3b00">Pensacola</text>
+  <text x="120" y="148" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1f3b00">Beautiful</text>
+  <path d="M80 175c18 0 25-20 42-20s24 20 42 20" fill="none" stroke="#1f3b00" stroke-width="10" stroke-linecap="round"/>
+  <path d="M144 58c8 0 14-12 24-12s16 12 24 12" fill="none" stroke="#1f3b00" stroke-width="10" stroke-linecap="round"/>
+  <path d="M90 55c6 0 10-8 18-8 8 0 12 8 18 8" fill="none" stroke="#1f3b00" stroke-width="10" stroke-linecap="round"/>
+  <text x="120" y="200" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#1f3b00">Keep America Beautiful Affiliate</text>
 </svg>
