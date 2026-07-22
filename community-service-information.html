@@ -26,7 +26,7 @@
         .menu-toggle span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
         .nav-menu { display: none; position: absolute; right: 0; top: calc(100% + 0.5rem); min-width: 220px; flex-direction: column; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 0.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.12); z-index: 20; }
         .nav-menu.open { display: flex; }
-        .nav-menu a { color: var(--link); text-decoration: none; font-weight: 600; padding: 0.6rem 0.75rem; border-radius: 8px; }
+        .nav-menu a { color: var(--muted); text-decoration: none; font-weight: 600; padding: 0.6rem 0.75rem; border-radius: 8px; }
         .nav-menu a:hover { background: #e8f5ee; }
         a { color: var(--link); text-decoration: none; }
         a:hover { text-decoration: underline; }
@@ -39,10 +39,13 @@
         .service-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
         .search-box { margin-bottom: 1rem; }
         .search-box input { width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--border); border-radius: 999px; font-size: 1.05rem; }
-        .service-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; background: #fdfdfd; }
-        .service-button { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: transparent; border: none; cursor: pointer; font-size: 1.05rem; }
-        .service-details { display: none; padding: 0 1.1rem 1rem; color: var(--muted); font-size: 1.05rem; }
-        .service-copy p, .service-copy ul, .service-copy ol { font-size: 1.05rem; }
+        .service-item { border: 1px solid var(--border); border-radius: 12px; margin-bottom: 1rem; background: #ffffff; box-shadow: 0 4px 10px rgba(16,24,32,0.03); }
+        .service-button { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 1.25rem; background: transparent; border: none; cursor: pointer; font-size: 1.2rem; font-weight: 600; color: var(--text); }
+        .service-button:hover, .service-button:focus { background: #f6fcf8; }
+        .service-button:focus { outline: 3px solid rgba(29,78,216,0.12); outline-offset: 3px; }
+        .service-details { display: none; padding: 0 1.1rem 1rem; color: #475569; font-size: 0.95rem; line-height: 1.5; }
+        .service-copy p, .service-copy ul, .service-copy ol { font-size: 0.95rem; line-height: 1.5; }
+        .service-button .arrow { font-size: 1.05rem; color: var(--accent-dark); }
         .service-item.active .service-details { display: block; }
         .service-detail-row { display: flex; gap: 1rem; }
         .service-logo { width: 72px; height: 72px; border-radius: 12px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; padding: 0.35rem; background: #f6fbf7; }
