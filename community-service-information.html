@@ -6,36 +6,64 @@
     <title>Community Service Index</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg:#f4f8f2; --card:#ffffff; --text:#1f2937; --muted:#5b6472; --accent:#2f7d5f; --border:#dce8de; --link:#1d4ed8; }
-        *{box-sizing:border-box}
-        body{margin:0;font-family:Open Sans, Arial, sans-serif;background:linear-gradient(135deg,#f7fbf5 0%,#eef7ee 100%);color:var(--text)}
-        header{background:linear-gradient(135deg,#215c45,var(--accent));color:#fff;padding:1.25rem 1.5rem}
-        .top-nav{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-        .brand{font-weight:700;color:#fff;text-decoration:none}
-        a{color:var(--link);text-decoration:none}
-        .container{max-width:1000px;margin:0 auto}
-        main{max-width:1000px;margin:1.25rem auto;padding:0 1.5rem 2rem}
-        .panel{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-bottom:1rem}
+        :root { --bg:#f4f8f2; --card:#ffffff; --text:#1f2937; --muted:#5b6472; --accent:#2f7d5f; --accent-dark:#215c45; --border:#dce8de; --link:#1d4ed8; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: "Open Sans", Arial, sans-serif; background: var(--bg); color: var(--text); }
 
-        .service-card{background:white;border:1px solid var(--border);border-radius:12px;padding:1.5rem}
-        .search-box{margin-bottom:1rem}
-        .search-box input{width:100%;padding:0.8rem 1rem;border:1px solid var(--border);border-radius:999px}
-        .service-item{border:1px solid var(--border);border-radius:10px;margin-bottom:0.75rem;background:#fdfdfd}
-        .service-button{width:100%;display:flex;justify-content:space-between;align-items:center;padding:1rem;background:transparent;border:none;cursor:pointer}
-        .service-details{display:none;padding:0 1.1rem 1rem;color:var(--muted)}
-        .service-item.active .service-details{display:block}
-        .service-detail-row{display:flex;gap:1rem}
-        .service-logo{width:72px;height:72px;border-radius:12px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;padding:0.35rem;background:#f6fbf7}
-        .service-logo img{width:100%;height:100%;object-fit:contain}
-        @media(max-width:600px){.service-detail-row{flex-direction:column}.service-logo{width:56px;height:56px}}
+        /* Bright-futures style header/nav */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--accent-dark);
+            padding: 1rem 1.5rem;
+        }
+        .brand { color: white; text-decoration: none; font-weight: 700; }
+        .nav-controls { position: relative; }
+        .menu-toggle { display: flex; flex-direction: column; gap: 4px; background: transparent; border: none; cursor: pointer; padding: 0.25rem; }
+        .menu-toggle span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+        .nav-menu { display: none; position: absolute; right: 0; top: calc(100% + 0.5rem); min-width: 220px; flex-direction: column; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 0.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.12); z-index: 20; }
+        .nav-menu.open { display: flex; }
+        .nav-menu a { color: var(--link); text-decoration: none; font-weight: 600; padding: 0.6rem 0.75rem; border-radius: 8px; }
+        .nav-menu a:hover { background: #e8f5ee; }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .container { max-width: 1000px; margin: 0 auto; }
+        main { max-width: 1000px; margin: 1.25rem auto; padding: 0 1.5rem 2rem; }
+        .panel { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+
+        /* Service index styles */
+        .service-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+        .search-box { margin-bottom: 1rem; }
+        .search-box input { width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--border); border-radius: 999px; }
+        .service-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; background: #fdfdfd; }
+        .service-button { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: transparent; border: none; cursor: pointer; }
+        .service-details { display: none; padding: 0 1.1rem 1rem; color: var(--muted); }
+        .service-item.active .service-details { display: block; }
+        .service-detail-row { display: flex; gap: 1rem; }
+        .service-logo { width: 72px; height: 72px; border-radius: 12px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; padding: 0.35rem; background: #f6fbf7; }
+        .service-logo img { width: 100%; height: 100%; object-fit: contain; }
+        @media (max-width: 600px) { .service-detail-row { flex-direction: column; } .service-logo { width: 56px; height: 56px; } }
     </style>
 </head>
 <body>
     <header>
-        <nav class="top-nav">
+        <nav class="top-nav" aria-label="Main navigation">
             <a class="brand" href="index.html">Pensacola Volunteer Hub</a>
-            <div>
-                <a href="index.html">Home</a>
+            <div class="nav-controls">
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html">Home</a>
+                    <a href="community-service-information.html">Service Index</a>
+                    <a href="find-your-match.html">Find Your Match</a>
+                    <a href="bright-futures.html">Bright Futures</a>
+                    <a href="cas.html">CAS</a>
+                </div>
             </div>
         </nav>
         <div class="container"><h1>Community Service Index</h1></div>
@@ -251,6 +279,23 @@
     </main>
 
     <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.nav-menu');
+
+        if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+                const isOpen = menu.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.nav-controls')) {
+                    menu.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
         function initServiceBehavior(){
             const searchInput = document.getElementById('serviceSearch');
             const serviceItems = Array.from(document.querySelectorAll('.service-item'));
