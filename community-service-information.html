@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community Service Index</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root { --bg:#f4f8f2; --card:#ffffff; --text:#1f2937; --muted:#5b6472; --accent:#2f7d5f; --accent-dark:#215c45; --border:#dce8de; --link:#1d4ed8; }
@@ -38,12 +40,14 @@
         .search-box { margin-bottom: 1rem; }
         .search-box input { width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--border); border-radius: 999px; }
         .service-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; background: #fdfdfd; }
-        .service-button { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: transparent; border: none; cursor: pointer; }
-        .service-details { display: none; padding: 0 1.1rem 1rem; color: var(--muted); }
+        .service-button { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: transparent; border: none; cursor: pointer; font-size: 1.05rem; }
+        .service-details { display: none; padding: 0 1.1rem 1rem; color: var(--muted); font-size: 1.05rem; }
+        .service-copy p, .service-copy ul, .service-copy ol { font-size: 1.05rem; }
         .service-item.active .service-details { display: block; }
         .service-detail-row { display: flex; gap: 1rem; }
         .service-logo { width: 72px; height: 72px; border-radius: 12px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; padding: 0.35rem; background: #f6fbf7; }
         .service-logo img { width: 100%; height: 100%; object-fit: contain; }
+        h1,h2,h3 { font-family: "Lora", Georgia, serif; color: var(--accent); }
         @media (max-width: 600px) { .service-detail-row { flex-direction: column; } .service-logo { width: 56px; height: 56px; } }
     </style>
 </head>
@@ -70,10 +74,6 @@
     </header>
 
     <main>
-        <section class="panel">
-            <p>This page lists community service organizations, opportunities, and signup links. Use the search box to filter results.</p>
-        </section>
-
         <section class="panel">
             <div class="service-card" id="serviceCard">
                 <div class="search-box">
