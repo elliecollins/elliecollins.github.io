@@ -18,6 +18,7 @@
             --accent-dark: #215c45;
             --accent-light: #e8f5ee;
             --border: #dce8de;
+            --link: #1d4ed8;
         }
 
         * { box-sizing: border-box; }
@@ -98,7 +99,7 @@
         }
 
         .nav-menu a {
-            color: #1d4ed8;
+            color: var(--link);
             text-decoration: none;
             font-weight: 600;
             padding: 0.6rem 0.75rem;
@@ -107,115 +108,55 @@
 
         .nav-menu a:hover {
             background: var(--accent-light);
-            color: #1d4ed8;
+            color: var(--link);
         }
 
-        a {
-            color: #1d4ed8;
-            text-decoration: none;
-        }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
 
-        a:hover {
-            text-decoration: underline;
-        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .container h1 { color: #ffffff; }
+        .lead { font-size: 1.05rem; max-width: 700px; color: rgba(255,255,255,0.92); }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+        main { max-width: 1000px; margin: -1rem auto 2rem; padding: 0 1.5rem 2rem; }
 
-        .container h1 {
-            color: #ffffff;
-        }
+        .panel { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem; margin-bottom: 1rem; box-shadow: 0 8px 24px rgba(0,0,0,0.05); }
 
-        .lead {
-            font-size: 1.05rem;
-            max-width: 700px;
-            color: rgba(255,255,255,0.92);
-        }
+        h1,h2,h3 { font-family: "Lora", Georgia, serif; margin-top:0; color: var(--accent); }
 
-        main {
-            max-width: 1000px;
-            margin: -1rem auto 2rem;
-            padding: 0 1.5rem 2rem;
-        }
+        .grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:1rem; }
+        .card { background: var(--accent-light); border:1px solid var(--border); border-radius:12px; padding:1rem; }
+        .card h3 { margin-top:0; color: var(--link); }
+        .tag { display:inline-block; margin-top:0.5rem; padding:0.25rem 0.6rem; border-radius:999px; background:white; color:var(--link); font-size:0.8rem; font-weight:700; }
 
-        .panel {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.25rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-        }
+        ul { padding-left:1.1rem; color:var(--muted); }
 
-        h1, h2, h3 {
-            font-family: "Lora", Georgia, serif;
-            margin-top: 0;
-            color: var(--accent);
-        }
+        .cta { text-align:center; background: linear-gradient(90deg, #f2fbf6, #e0f4e8); }
+        .btn { display:inline-block; margin-top:0.5rem; padding:0.75rem 1rem; background:var(--accent); color:white; border-radius:999px; font-weight:700; text-decoration:none; }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1rem;
-        }
+        /* Service index styles */
+        .service-card { background: white; border:1px solid var(--border); border-radius:12px; padding:1.5rem; box-shadow:0 8px 24px rgba(0,0,0,0.05); }
+        .search-box { margin-bottom:1rem; display:flex; justify-content:center; }
+        .search-box input { width:100%; max-width:100%; padding:0.8rem 1rem; border:1px solid var(--border); border-radius:999px; font-size:1rem; box-sizing:border-box; }
+        .service-item { border:1px solid var(--border); border-radius:10px; margin-bottom:0.75rem; overflow:hidden; background:#fdfdfd; }
+        .service-button { width:100%; display:flex; justify-content:space-between; align-items:center; padding:1rem 1.1rem; background:transparent; border:none; text-align:left; font:inherit; color:var(--text); cursor:pointer; }
+        .service-button .arrow { font-size:1rem; color:var(--accent); transition:transform 0.2s ease; }
+        .service-item.active .arrow { transform:rotate(180deg); }
+        .service-details { display:none; padding:0 1.1rem 1rem; color:var(--muted); }
+        .service-item.active .service-details { display:block; }
+        .service-detail-row { display:flex; align-items:flex-start; gap:1rem; }
+        .service-logo { flex-shrink:0; width:72px; height:72px; border-radius:14px; border:1px solid var(--border); background:#f6fbf7; padding:0.35rem; display:flex; align-items:center; justify-content:center; }
+        .service-logo img { width:100%; height:100%; object-fit:contain; }
+        .service-copy { flex:1; min-width:0; }
 
-        .card {
-            background: var(--accent-light);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1rem;
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: #1d4ed8;
-        }
-
-        .tag {
-            display: inline-block;
-            margin-top: 0.5rem;
-            padding: 0.25rem 0.6rem;
-            border-radius: 999px;
-            background: white;
-            color: #1d4ed8;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        ul {
-            padding-left: 1.1rem;
-            color: var(--muted);
-        }
-
-        .cta {
-            text-align: center;
-            background: linear-gradient(90deg, #f2fbf6, #e0f4e8);
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 0.5rem;
-            padding: 0.75rem 1rem;
-            background: var(--accent);
-            color: white;
-            border-radius: 999px;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        @media (max-width: 760px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        @media (max-width:760px) { .grid{grid-template-columns:1fr;} }
+        @media (max-width:600px){ .service-detail-row{flex-direction:column;} .service-logo{width:56px;height:56px;} }
     </style>
 </head>
 <body>
     <header>
         <nav class="top-nav" aria-label="Main navigation">
-            <span class="brand">Pensacola Volunteer Hub</span>
+            <a class="brand" href="index.html">Pensacola Volunteer Hub</a>
             <div class="nav-controls">
                 <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation menu">
                     <span></span>
@@ -224,7 +165,7 @@
                 </button>
                 <div class="nav-menu" id="navMenu">
                     <a href="index.html">Home</a>
-                    <a href="community-service-information.html">Service Index</a>
+                    <a href="#service-index">Service Index</a>
                     <a href="find-your-match.html">Find Your Match</a>
                     <a href="bright-futures.html">Bright Futures</a>
                     <a href="cas.html">CAS</a>
@@ -286,7 +227,257 @@
             <p>Start small, stay consistent, and build a service record that matters.</p>
             <a class="btn" href="mailto:service@example.org">Contact a local organization</a>
         </section>
+
+        <!-- Community Service Index merged here -->
+        <section id="service-index" class="panel">
+            <h2>Local Community Service Index</h2>
+            <div class="service-card" id="serviceCard">
+                <div class="search-box">
+                    <input type="text" id="serviceSearch" placeholder="Search community services...">
+                </div>
+
+                <div class="service-item">
+                    <button class="service-button" type="button" data-name="BRACE">
+                        <span>BRACE</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="service-details">
+                        <div class="service-detail-row">
+                            <div class="service-logo">
+                                <img src="images/logos/brace.svg" alt="BRACE logo">
+                            </div>
+                            <div class="service-copy">
+                                <p><a href="https://bereadyalliance.org/become-a-volunteer" target="_blank" rel="noopener">BRACE</a> teaches volunteers how to assist their communities in the case of an emergency. By volunteering with BRACE, students can gain vital hands-on skills in disaster preparedness, basic first aid, fire safety, and light search and rescue.</p>
+                                <p>There are two ways to volunteer with BRACE:</p>
+                                <ul>
+                                    <li><strong>Community Emergency Response Team (CERT):</strong> Click <a href="https://forms.office.com/pages/responsepage.aspx?id=Yt-gFqmldUqtuaQznvqBB0Rpo7MryCxLoV5371u49IxUQldRUk1OQU0yUzJTWUY5SUgxTkMyWElMRS4u&route=shorturl" target="_blank" rel="noopener">this</a> link to apply.</li>
+                                    <li><strong>Pensacola Fire Corps:</strong> Click <a href="https://forms.office.com/pages/responsepage.aspx?id=Yt-gFqmldUqtuaQznvqBB0Rpo7MryCxLoV5371u49IxUMk5MRTY3OUdDSk42RDZZMzUwSjU3RkNFOS4u&route=shorturl" target="_blank" rel="noopener">this</a> link to apply.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <button class="service-button" type="button" data-name="Bracelets to Backpacks">
+                        <span>Bracelets to Backpacks</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="service-details">
+                        <div class="service-detail-row">
+                            <div class="service-logo">
+                                <img src="images/logos/bracelets-to-backpacks.svg" alt="Bracelets to Backpacks logo">
+                            </div>
+                            <div class="service-copy">
+                                <p>Bracelets to Backpacks helps provide essentials and encouragement to students and families in need through service-driven initiatives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <button class="service-button" type="button" data-name="Children's Home Society of Florida">
+                        <span>Children's Home Society of Florida</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="service-details">
+                        <div class="service-detail-row">
+                            <div class="service-logo">
+                                <img src="images/logos/childrens-home-society.svg" alt="Children's Home Society of Florida logo">
+                            </div>
+                            <div class="service-copy">
+                                <p>The <a href="https://chsfl.volunteerhub.com/vv2/lp/western#_" target="_blank" rel="noopener">Children's Home Society of Florida</a> provides care and resources for children facing poverty and coming out of traumatic situations.</p>
+                                <p>Students can assist this society by purchasing and donating <strong>backpacks</strong>, along with a <strong>minimum of 5 other items</strong> from one of <a href="https://chsfl.org/ways-to-give/give-in-kind/" target="_blank" rel="noopener">these</a> wishlists. Donations can be dropped off at 17 S. De Villiers Street any time from 8am to 5pm on Tuesdays and Thursdays through the month of August. <strong>Each kit is worth 2 service hours</strong>, and there is no maximum to how much you can donate.</p>
+                                <p><strong>Important Steps to Receive Volunteer Hours:</strong></p>
+                                <ol>
+                                    <li>Create a profile: chsfl.volunteerhub.com</li>
+                                    <li>Register under: “Back to School Kits”</li>
+                                    <li>Once completed, record your donation: <a href="https://chsfl.org/chs-gifts/" target="_blank" rel="noopener">https://chsfl.org/chs-gifts/</a></li>
+                                </ol>
+                                <p>Access all of this information at <a href="https://chsfl.volunteerhub.com/vv2/lp/western/event/cc2ec1da-dc01-40ce-b04c-f8ffec5743fa" target="_blank" rel="noopener">this link</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <button class="service-button" type="button" data-name="Escambia County Animal Welfare">
+                        <span>Escambia County Animal Welfare</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="service-details">
+                        <div class="service-detail-row">
+                            <div class="service-logo">
+                                <img src="images/logos/escambia-animal-welfare.svg" alt="Escambia County Animal Welfare logo">
+                            </div>
+                            <div class="service-copy">
+                                <p>This organization offers volunteer opportunities that help care for animals and support shelter and adoption programs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <button class="service-button" type="button" data-name="Florida Public Archaeology Network">
+                        <span>Florida Public Archaeology Network</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="service-details">
+                        <div class="service-detail-row">
+                            <div class="service-logo">
+                                <img src="images/logos/florida-public-archaeology-network.svg" alt="Florida Public Archaeology Network logo">
+                            </div>
+                            <div class="service-copy">
+                                <p>The Florida Public Archaeology Network offers educational and community-service opportunities connected to local history and preservation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <button class="service-button" type="button" data-name="Gulf Coast Culture Fest">
+                        <span>Gulf Coast Culture Fest</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="service-details">
+                        <div class="service-detail-row">
+                            <div class="service-logo">
+                                <img src="images/logos/gulf-coast-culture-fest.svg" alt="Gulf Coast Culture Fest logo">
+                            </div>
+                            <div class="service-copy">
+                                <p>Gulf Coast Culture Fest brings together community events and service opportunities centered on culture, connection, and local celebration.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <button class="service-button" type="button" data-name="Gulf Coast Diplomacy Youth Diplomats">
+                        <span>Gulf Coast Diplomacy Youth Diplomats</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="service-details">
+                        <div class="service-detail-row">
+                            <div class="service-logo">
+                                <img src="images/logos/gulf-coast-diplomacy.svg" alt="Gulf Coast Diplomacy Youth Diplomats logo">
+                            </div>
+                            <div class="service-copy">
+                                <p>Gulf Coast Diplomacy Youth Diplomats supports youth leadership, civic engagement, and service through diplomacy-oriented projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <button class="service-button" type="button" data-name="Key Club">
+                        <span>Key Club</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="service-details">
+                        <div class="service-detail-row">
+                            <div class="service-logo">
+                                <img src="images/logos/key-club.svg" alt="Key Club logo">
+                            </div>
+                            <div class="service-copy">
+                                <p>Key Club offers student-led volunteer service opportunities through school clubs and community-focused projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <button class="service-button" type="button" data-name="Keep Pensacola Beautiful">
+                        <span>Keep Pensacola Beautiful</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="service-details">
+                        <div class="service-detail-row">
+                            <div class="service-logo">
+                                <img src="images/logos/keep-pensacola-beautiful.svg" alt="Keep Pensacola Beautiful logo">
+                            </div>
+                            <div class="service-copy">
+                                <p>Keep Pensacola Beautiful organizes cleanups and environmental projects that help improve parks, beaches, and neighborhoods across the community.</p>
+                                <p>We don't have our full 2026-2027 calendar finalized yet, but here's what's already on the books:</p>
+                                <ul>
+                                    <li><strong>International Coastal Cleanup (ICC)</strong> - September 19, 2026</li>
+                                    <li><strong>Great American Cleanup</strong> - typically held in spring, exact dates TBD. This usually includes activities like community cleanups and bag swaps, along with other environmental initiatives.</li>
+                                    <li><strong>World Oceans Day</strong> - June 2027 (exact date TBD)</li>
+                                </ul>
+                                <p>In between those, we regularly host pop-up cleanup events throughout the year. Students can expect ongoing opportunities even outside our two larger events.</p>
+                                <p>We're also in the process of relaunching our youth program. It's a yearlong commitment for students who apply and are selected, and it involves cleanups, leading a self-designed environmental project, and connecting with local community leaders in environmental work.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <button class="service-button" type="button" data-name="City of Pensacola Parks and Recreation">
+                        <span>City of Pensacola Parks and Recreation</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="service-details">
+                        <p><a href="https://www.cityofpensacola.com/570/Volunteer" target="_blank" rel="noopener">The City of Pensacola, Parks and Recreation</a> partners with Ocean Hour to host monthly cleanups around the city to help keep Pensacola clean. Students can volunteer at various cleanups throughout the month. Each cleanup is about an hour long.</p>
+                        <p>All volunteers must fill out <a href="https://www.cityofpensacola.com/DocumentCenter/View/27661/Volunteer-Waiver-Form-2025-FINAL" target="_blank" rel="noopener">this form</a>.</p>
+                        <p><strong>Chimney Park Cleanups:</strong> 2nd Saturday of every month (Sign-in from 7:45am to 8:45; lasts about an hour)</p>
+                        <p><strong>Bartram Park, Graffiti Bridge, Veteran’s Memorial Park, and Wayside Park Project/Greenshores Cleanups:</strong> 3rd Saturday of each month.</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <button class="service-button" type="button" data-name="Ocean Hour">
+                        <span>Ocean Hour</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="service-details">
+                        <div class="service-detail-row">
+                            <div class="service-logo">
+                                <img src="images/logos/ocean-hour.svg" alt="Ocean Hour logo">
+                            </div>
+                            <div class="service-copy">
+                                <p>Ocean Hour brings students together for beach and marine conservation activities aimed at protecting coastal environments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <button class="service-button" type="button" data-name="Open Books Pensacola">
+                        <span>Open Books Pensacola</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="service-details">
+                        <div class="service-detail-row">
+                            <div class="service-logo">
+                                <img src="images/logos/open-books-pensacola.svg" alt="Open Books Pensacola logo">
+                            </div>
+                            <div class="service-copy">
+                                <p>Open Books Pensacola helps provide books and literacy resources to local families and students. Volunteers may assist with sorting donations, organizing events, or supporting reading programs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <button class="service-button" type="button" data-name="Pensacola MESS Hall">
+                        <span>Pensacola MESS Hall</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="service-details">
+                        <div class="service-detail-row">
+                            <div class="service-logo">
+                                <img src="images/logos/pensacola-mess-hall.svg" alt="Pensacola MESS Hall logo">
+                            </div>
+                            <div class="service-copy">
+                                <p>Pensacola MESS Hall connects volunteers with food-focused service projects that support local meals, community outreach, and neighborhood care.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
     </main>
+
     <script>
         const toggle = document.querySelector('.menu-toggle');
         const menu = document.querySelector('.nav-menu');
@@ -303,6 +494,67 @@
                     toggle.setAttribute('aria-expanded', 'false');
                 }
             });
+        }
+
+        // Loading full service items from community-service-information.html
+        (async function loadServices(){
+            try{
+                const resp = await fetch('community-service-information.html');
+                const text = await resp.text();
+                // Extract the service-card inner HTML from that page
+                const start = text.indexOf('<div class="card">');
+                if(start>-1){
+                    const snippet = text.slice(start, text.indexOf('</div>\n    </main>', start)+6);
+                    // Find the service-item list inside snippet
+                    const itemsStart = snippet.indexOf('<div class="service-item">');
+                    if(itemsStart>-1){
+                        const itemsHtml = snippet.slice(itemsStart, snippet.lastIndexOf('</div>', snippet.lastIndexOf('</div>')));
+                        const serviceCard = document.getElementById('serviceCard');
+                        if(serviceCard){
+                            serviceCard.insertAdjacentHTML('beforeend', itemsHtml);
+                            initServiceBehavior();
+                        }
+                    }
+                }
+            }catch(e){
+                // fallback: the items were inlined at build-time; init anyway
+                initServiceBehavior();
+            }
+        })();
+
+        function initServiceBehavior(){
+            const searchInput = document.getElementById('serviceSearch');
+            const serviceItems = Array.from(document.querySelectorAll('.service-item'));
+
+            const sortServiceItems = () => {
+                const container = document.getElementById('serviceCard');
+                if(!container) return;
+                const items = Array.from(container.querySelectorAll('.service-item'));
+                items.sort((a,b)=> a.querySelector('.service-button').dataset.name.toLowerCase().localeCompare(b.querySelector('.service-button').dataset.name.toLowerCase()));
+                items.forEach(i=> container.appendChild(i));
+            };
+
+            document.querySelectorAll('.service-button').forEach((button)=>{
+                button.addEventListener('click', ()=>{
+                    const item = button.closest('.service-item');
+                    serviceItems.forEach((entry)=>{ if(entry!==item) entry.classList.remove('active'); });
+                    item.classList.toggle('active');
+                });
+            });
+
+            if(searchInput){
+                searchInput.addEventListener('input', ()=>{
+                    const query = searchInput.value.toLowerCase();
+                    serviceItems.forEach(item=>{
+                        const name = item.querySelector('.service-button').dataset.name.toLowerCase();
+                        const matches = name.includes(query);
+                        item.style.display = matches ? 'block' : 'none';
+                    });
+                    sortServiceItems();
+                });
+            }
+
+            sortServiceItems();
         }
     </script>
 </body>
